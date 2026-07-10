@@ -316,6 +316,8 @@
   .hero-art .label.l1 { top: 6%; left: -4%; }
   .hero-art .label.l2 { top: 38%; right: -8%; animation-delay: -1.2s; background: var(--white); color: var(--ink); }
   .hero-art .label.l3 { bottom: 12%; left: 4%; animation-delay: -2.4s; background: var(--orange); color: var(--white); }
+  .hero-art .label .emoji { font-size: 1.6em; line-height: 1; margin-right: 2px; vertical-align: -2px; }
+  .hero-art .label .emoji.small { font-size: 1.15em; }
   @keyframes float {
     0%,100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
@@ -1113,9 +1115,9 @@
       <div class="disc">
         <img src="assets/hero-ai.png" alt="AI creative artwork" />
       </div>
-      <span class="label l1">★ idea</span>
-      <span class="label l2">⚙ prototype</span>
-      <span class="label l3">🚀 launch</span>
+      <span class="label l1"><span class="emoji small">★</span> idea</span>
+      <span class="label l2"><span class="emoji">⚙</span> prototype</span>
+      <span class="label l3"><span class="emoji small">🚀</span> launch</span>
     </div>
 
     <div class="floating-rocket">
@@ -1305,6 +1307,16 @@
     object-position: center;
     z-index: 0;
     pointer-events: none;
+  }
+  #promoVideo {
+    object-fit: cover;
+    background: var(--ink-deep);
+  }
+  .promo-band::before {
+    background: rgba(0,6,140,0.02) !important;
+  }
+  @media (max-width: 880px) {
+    #promoVideo { aspect-ratio: 16 / 9; object-fit: cover; }
   }
   /* scrim for text legibility + brand tint */
   .vortex-band::before {
@@ -1645,10 +1657,10 @@
       top: auto !important; left: auto !important; transform: none !important;
       margin-top: 10px;
       flex-wrap: wrap;
-      display: none;
+      display: flex !important;
     }
-    .lesson-panel.active .story-row { display: flex !important; }
-    .lesson-panel .story-item { width: 38px !important; height: 38px !important; }
+    .lesson-panel .story-item { width: 30px !important; height: 30px !important; }
+    .lesson-panel.active .story-item { width: 38px !important; height: 38px !important; }
     .lesson-panel.active .panel-detail { max-height: 260px !important; margin-top: 14px !important; }
     .lesson-panel:not(.active) { background: rgba(255,255,255,.03) !important; box-shadow: none !important; }
   }
@@ -1873,7 +1885,7 @@
             </div>
           </div>
           <div class="panel-num">04</div>
-          <div class="panel-title" data-i18n="l04_title">Digital Encyclopedia of Nature</div>
+          <div class="panel-title" data-i18n="l04_title">Digital Encyclopedia of History</div>
           <div class="panel-detail">
             <p class="desc" data-i18n="l04_desc">Research and publish a wildlife website.</p>
             <div class="lesson-tools"><span class="pill">Perplexity</span><span class="pill">Webflow AI</span></div>
@@ -2110,6 +2122,11 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- ─────────── PROMO VIDEO BAND ─────────── -->
+<section class="vortex-band promo-band" aria-label="Program promo">
+  <video id="promoVideo" poster="assets/promostart-poster.jpg" muted loop playsinline preload="none"></video>
 </section>
 
 <!-- ─────────── OUTCOMES ─────────── -->
@@ -2485,7 +2502,7 @@
       l01_title: "Izveido savu zīmolu", l01_desc: "Logotips, AI modelis uz T-krekla un reklamas video.",
       l02_title: "Laika mašīna", l02_desc: "Vēsturiskas personas AI sejas apvienošana un kino video.",
       l03_title: "Virālā tēla kartīte", l03_desc: "Animē leģendu un izveido vienas lapas mājaslapu.",
-      l04_title: "Digitālā dabas enciklopēdija", l04_desc: "Izpēti un publicē mājaslapu par dzīvo dabu.",
+      l04_title: "Digitālā vēstures enciklopēdija", l04_desc: "Izpēti un publicē mājaslapu par dzīvo dabu.",
       l05_title: "Izveido savu spēli", l05_desc: "Publicē spēlējamu 2D spēli, neizmantojot kodu.",
       l06_title: "Radi savu pasauli", l06_desc: "Iespaidīga 3D vide, kas radīta no teksta uzvednes.",
       l07_title: "Filma vienā nodarbībā", l07_desc: "Ģenerē video un izveido kino stīla piezemāšanās lapu.",
@@ -2552,7 +2569,7 @@
       l01_title: "Создай свой бренд", l01_desc: "Логотип, AI-модель на футболке и промо-видео.",
       l02_title: "Машина времени", l02_desc: "AI-слияние лица с историческим персонажем и кинематографичное видео.",
       l03_title: "Вирусная карточка персонажа", l03_desc: "Анимировать легенду и создать одностраничный сайт.",
-      l04_title: "Цифровая энциклопедия природы", l04_desc: "Исследовать тему и опубликовать сайт о дикой природе.",
+      l04_title: "Цифровая энциклопедия истории", l04_desc: "Исследовать тему и опубликовать сайт о дикой природе.",
       l05_title: "Создай свою игру", l05_desc: "Запустить играбельную 2D-игру без кода.",
       l06_title: "Создай свой мир", l06_desc: "Захватывающая 3D-среда, созданная по текстовому запросу.",
       l07_title: "Фильм за одно занятие", l07_desc: "Сгенерировать видео и создать кинематографичный лендинг.",
@@ -2619,7 +2636,7 @@
       l01_title: "打造你的品牌", l01_desc: "标志、T衬上的AI模特形象，以及一段季传视频。",
       l02_title: "时间机器", l02_desc: "历史人物AI换脸合成与电影级视频。",
       l03_title: "爆款角色卡片", l03_desc: "为一个传奇人物制作动画，并搭建一个单页网站。",
-      l04_title: "数字自然百科", l04_desc: "调研并发布一个野生动物主题网站。",
+      l04_title: "历史数字百科", l04_desc: "调研并发布一个野生动物主题网站。",
       l05_title: "制作你自己的游戏", l05_desc: "无需编写代码，发布一款可玩的2D游戏。",
       l06_title: "创造你的世界", l06_desc: "根据文字提示生成沉浸式3D场景。",
       l07_title: "一课成片", l07_desc: "生成视频并制作一个电影感十足的落地页。",
@@ -2818,6 +2835,27 @@
       }
     }, { threshold: 0.2 });
     vortexIo.observe(vortexVideo);
+  }
+
+  // promo video: same lazy-load-on-visibility technique
+  const promoVideo = document.getElementById('promoVideo');
+  if (promoVideo) {
+    let promoLoaded = false;
+    const promoIo = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          if (!promoLoaded) {
+            promoLoaded = true;
+            promoVideo.src = 'assets/promostart.mp4';
+            promoVideo.load();
+          }
+          promoVideo.play().catch(() => {});
+        } else {
+          promoVideo.pause();
+        }
+      }
+    }, { threshold: 0.2 });
+    promoIo.observe(promoVideo);
   }
 
   // smooth scroll
