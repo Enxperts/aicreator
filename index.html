@@ -1614,8 +1614,44 @@
   .lesson-panel.gold .pill { border-color: rgba(255,215,127,.5); color: #FFD77F; }
   .lesson-panel.gold .desc { color: rgba(255,236,190,.78); }
 
-  @media (max-width: 900px) { .lesson-group { height: 200px; } .panel-title { font-size: 18px; } }
-  @media (max-width: 760px) { .lesson-groups { display: none; } }
+  @media (max-width: 900px) { .panel-title { font-size: 18px; } }
+
+  /* ── Mobile (≤760px): same markup (incl. video circles), stacked accordion layout ── */
+  @media (max-width: 760px) {
+    .lesson-groups { display: flex !important; }
+    .lesson-group { flex-direction: column; height: auto; gap: 10px; }
+    .lesson-panel {
+      flex: none !important;
+      width: 100%;
+      padding: 16px 18px !important;
+      justify-content: flex-start !important;
+      align-items: stretch !important;
+    }
+    .panel-num {
+      font-size: 20px !important;
+      writing-mode: horizontal-tb !important;
+      transform: none !important;
+      margin-bottom: 4px;
+    }
+    .panel-title {
+      font-size: 17px !important;
+      margin-top: 0 !important;
+      opacity: 1 !important;
+      max-height: none !important;
+      overflow: visible !important;
+    }
+    .lesson-panel .story-row {
+      position: static !important;
+      top: auto !important; left: auto !important; transform: none !important;
+      margin-top: 10px;
+      flex-wrap: wrap;
+      display: none;
+    }
+    .lesson-panel.active .story-row { display: flex !important; }
+    .lesson-panel .story-item { width: 38px !important; height: 38px !important; }
+    .lesson-panel.active .panel-detail { max-height: 260px !important; margin-top: 14px !important; }
+    .lesson-panel:not(.active) { background: rgba(255,255,255,.03) !important; box-shadow: none !important; }
+  }
 
   /* ── Mobile fallback: simple accordion (reuses existing markup) ── */
   .lessons-list {
@@ -2022,152 +2058,6 @@
       </div>
     </div>
 
-    <div class="lessons-list" data-reveal>
-      <details class="lesson-row">
-        <summary class="lesson-head">
-          <span class="num">01</span>
-          <span class="title" data-i18n="l01_title">Design Your Brand</span>
-          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </summary>
-        <div class="lesson-body-pad">
-          <p class="desc" data-i18n="l01_desc">Logo, AI model on a T-shirt, and a promo video.</p>
-          <div class="lesson-tools"><span class="pill">Leonardo AI</span></div>
-        </div>
-      </details>
-
-      <details class="lesson-row">
-        <summary class="lesson-head">
-          <span class="num">02</span>
-          <span class="title" data-i18n="l02_title">Time Machine</span>
-          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </summary>
-        <div class="lesson-body-pad">
-          <p class="desc" data-i18n="l02_desc">Historical figure AI face merge and cinematic video.</p>
-          <div class="lesson-tools"><span class="pill">Runway ML</span><span class="pill">Artbreeder</span></div>
-        </div>
-      </details>
-
-      <details class="lesson-row">
-        <summary class="lesson-head">
-          <span class="num">03</span>
-          <span class="title" data-i18n="l03_title">Viral Character Card</span>
-          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </summary>
-        <div class="lesson-body-pad">
-          <p class="desc" data-i18n="l03_desc">Animate a legend and build a one-page website.</p>
-          <div class="lesson-tools"><span class="pill">Viggle</span><span class="pill">Carrd</span></div>
-        </div>
-      </details>
-
-      <details class="lesson-row">
-        <summary class="lesson-head">
-          <span class="num">04</span>
-          <span class="title" data-i18n="l04_title">Digital Encyclopedia of Nature</span>
-          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </summary>
-        <div class="lesson-body-pad">
-          <p class="desc" data-i18n="l04_desc">Research and publish a wildlife website.</p>
-          <div class="lesson-tools"><span class="pill">Perplexity</span><span class="pill">Webflow AI</span></div>
-        </div>
-      </details>
-
-      <details class="lesson-row">
-        <summary class="lesson-head">
-          <span class="num">05</span>
-          <span class="title" data-i18n="l05_title">Build Your Own Game</span>
-          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </summary>
-        <div class="lesson-body-pad">
-          <p class="desc" data-i18n="l05_desc">Launch a playable 2D game with no code.</p>
-          <div class="lesson-tools"><span class="pill">Rosebud AI</span></div>
-        </div>
-      </details>
-
-      <details class="lesson-row">
-        <summary class="lesson-head">
-          <span class="num">06</span>
-          <span class="title" data-i18n="l06_title">Create Your World</span>
-          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </summary>
-        <div class="lesson-body-pad">
-          <p class="desc" data-i18n="l06_desc">Immersive 3D environment from a text prompt.</p>
-          <div class="lesson-tools"><span class="pill">Blockade Labs</span></div>
-        </div>
-      </details>
-
-      <details class="lesson-row">
-        <summary class="lesson-head">
-          <span class="num">07</span>
-          <span class="title" data-i18n="l07_title">One-Lesson Film</span>
-          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </summary>
-        <div class="lesson-body-pad">
-          <p class="desc" data-i18n="l07_desc">Generate a video and build a cinematic landing page.</p>
-          <div class="lesson-tools"><span class="pill">Kling</span><span class="pill">Lovable</span></div>
-        </div>
-      </details>
-
-      <details class="lesson-row">
-        <summary class="lesson-head">
-          <span class="num">08</span>
-          <span class="title" data-i18n="l08_title">Animate a Photo</span>
-          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </summary>
-        <div class="lesson-body-pad">
-          <p class="desc" data-i18n="l08_desc">Bring any image to motion with AI.</p>
-          <div class="lesson-tools"><span class="pill">Kling Motion Control</span></div>
-        </div>
-      </details>
-
-      <details class="lesson-row">
-        <summary class="lesson-head">
-          <span class="num">09</span>
-          <span class="title" data-i18n="l09_title">Physics Comes Alive</span>
-          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </summary>
-        <div class="lesson-body-pad">
-          <p class="desc" data-i18n="l09_desc">An AI avatar explaining science with animation.</p>
-          <div class="lesson-tools"><span class="pill">HeyGen</span><span class="pill">Canva</span></div>
-        </div>
-      </details>
-
-      <details class="lesson-row">
-        <summary class="lesson-head">
-          <span class="num">10</span>
-          <span class="title" data-i18n="l10_title">Motion Control</span>
-          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </summary>
-        <div class="lesson-body-pad">
-          <p class="desc" data-i18n="l10_desc">Use a video reference to create a movie scene.</p>
-          <div class="lesson-tools"><span class="pill">CapCut</span><span class="pill">Kling Motion Control</span></div>
-        </div>
-      </details>
-
-      <details class="lesson-row">
-        <summary class="lesson-head">
-          <span class="num">11</span>
-          <span class="title" data-i18n="l11_title">Myths of Europe Page</span>
-          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </summary>
-        <div class="lesson-body-pad">
-          <p class="desc" data-i18n="l11_desc">Research a topic and generate a business website.</p>
-          <div class="lesson-tools"><span class="pill">Perplexity</span><span class="pill">Minimax</span><span class="pill">Veo3</span><span class="pill">Lovable</span></div>
-        </div>
-      </details>
-
-      <details class="lesson-row gold">
-        <summary class="lesson-head">
-          <span class="num">12</span>
-          <span class="trophy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span>
-          <span class="title" data-i18n="l12_title">Project Presentation</span>
-          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </summary>
-        <div class="lesson-body-pad">
-          <p class="desc" data-i18n="l12_desc">Present your best work, receive feedback, and celebrate.</p>
-          <div class="lesson-tools"><span class="pill">Demo Day</span></div>
-        </div>
-      </details>
-    </div>
   </div>
 </section>
 
